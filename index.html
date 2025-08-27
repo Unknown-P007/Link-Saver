@@ -51,42 +51,48 @@
     }
     
     .add-link-btn, .add-group-btn {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
       border: none;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 20px;
+      font-size: 24px;
       font-weight: bold;
-      transition: all 0.2s ease;
+      transition: all 0.3s ease;
       position: relative;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
     
     .add-link-btn {
-      background: linear-gradient(135deg, #3b82f6, #2563eb);
-      color: white;
+      background: linear-gradient(135deg, #17a2b8, #138496);
+      color: black;
     }
     
     .add-link-btn:hover {
-      background: linear-gradient(135deg, #2563eb, #1d4ed8);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+      background: linear-gradient(135deg, #138496, #117a8b);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(23, 162, 184, 0.4);
     }
     
     .add-group-btn {
-      background: linear-gradient(135deg, #10b981, #059669);
-      color: white;
+      background: linear-gradient(135deg, #dc3545, #c82333);
+      color: black;
       order: 3;
     }
     
     .add-group-btn:hover {
-      background: linear-gradient(135deg, #059669, #047857);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
+      background: linear-gradient(135deg, #c82333, #bd2130);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(220, 53, 69, 0.4);
+    }
+    
+    .add-link-btn svg, .add-group-btn svg {
+      width: 28px;
+      height: 28px;
+      fill: currentColor;
     }
     
     .search-container {
@@ -740,17 +746,17 @@
     <!-- Top Controls Bar -->
     <div class="controls-bar">
       <button class="add-link-btn" id="addLinkBtn" title="Add new link">
-        🔗➕
+        🔗
       </button>
       
       <div class="search-container">
-        <div class="search-icon">🔍</div>
-        <input type="text" class="search-input" id="searchInput" placeholder="Search your links...">
+        <div class="search-icon"></div>
+        <input type="text" class="search-input" id="searchInput" placeholder="🔍 Search">
         <button class="clear-search" id="clearSearch" title="Clear search">✕</button>
       </div>
       
       <button class="add-group-btn" id="addGroupBtn" title="Add new group">
-        👥➕
+        👥
       </button>
     </div>
     
