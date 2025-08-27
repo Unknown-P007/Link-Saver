@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>SaveFromNet</title>
+  <title>My Link Saver</title>
   <style>
     * {
       box-sizing: border-box;
@@ -26,7 +26,7 @@
     
     .header {
       text-align: center;
-      margin-bottom: 32px;
+      margin-bottom: 40px;
     }
     
     .header h1 {
@@ -41,154 +41,20 @@
       font-size: 1.1rem;
     }
     
-    /* Top Controls Bar */
-    .controls-bar {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      margin-bottom: 32px;
-      flex-wrap: wrap;
-    }
-    
-    .add-link-btn, .add-group-btn {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      position: relative;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
-    
-    .add-link-btn {
-      background: linear-gradient(135deg, #17a2b8, #138496);
-      color: black;
-    }
-    
-    .add-link-btn:hover {
-      background: linear-gradient(135deg, #138496, #117a8b);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(23, 162, 184, 0.4);
-    }
-    
-    .add-group-btn {
-      background: linear-gradient(135deg, #dc3545, #c82333);
-      color: black;
-      order: 3;
-    }
-    
-    .add-group-btn:hover {
-      background: linear-gradient(135deg, #c82333, #bd2130);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(220, 53, 69, 0.4);
-    }
-    
-    .add-link-btn svg, .add-group-btn svg {
-      width: 28px;
-      height: 28px;
-      fill: currentColor;
-    }
-    
-    .search-container {
-      flex: 1;
-      position: relative;
-      min-width: 200px;
-      order: 2;
-    }
-    
-    .search-input {
-      width: 100%;
-      height: 48px;
-      padding: 0 16px 0 48px;
-      border: 2px solid #4a5568;
+    .add-form {
+      background: #2d3748;
+      border: 1px solid #4a5568;
       border-radius: 12px;
-      background: #2d3748;
-      color: #e2e8f0;
-      font-size: 16px;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-    
-    .search-input:focus {
-      outline: none;
-      border-color: #3b82f6;
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
-    }
-    
-    .search-icon {
-      position: absolute;
-      left: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #a0aec0;
-      font-size: 18px;
-      pointer-events: none;
-    }
-    
-    .clear-search {
-      position: absolute;
-      right: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      background: none;
-      border: none;
-      color: #a0aec0;
-      cursor: pointer;
-      font-size: 18px;
-      display: none;
-      padding: 4px;
-      border-radius: 4px;
-    }
-    
-    .clear-search:hover {
-      color: #e2e8f0;
-      background: rgba(255, 255, 255, 0.1);
-    }
-    
-    .clear-search.show {
-      display: block;
-    }
-    
-    /* Add Forms */
-    .add-form, .add-group-form {
-      background: #2d3748;
-      border: 2px solid #4a5568;
-      border-radius: 16px;
       padding: 24px;
-      margin-bottom: 24px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-      display: none;
-      animation: slideDown 0.3s ease-out;
-    }
-    
-    .add-form.show, .add-group-form.show {
-      display: block;
-    }
-    
-    @keyframes slideDown {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      margin-bottom: 32px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     }
     
     .form-title {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-weight: 600;
       color: #f7fafc;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
+      margin-bottom: 16px;
     }
     
     .form-group {
@@ -209,7 +75,7 @@
     input[type="text"], input[type="url"], select {
       width: 100%;
       padding: 12px 16px;
-      border: 2px solid #4a5568;
+      border: 1px solid #4a5568;
       border-radius: 8px;
       font-size: 16px;
       background: #1a202c;
@@ -228,26 +94,17 @@
       color: #e2e8f0;
     }
     
-    .form-actions {
-      display: flex;
-      gap: 12px;
-      margin-top: 20px;
-    }
-    
-    .submit-btn, .cancel-btn {
+    .submit-btn {
+      background: #3b82f6;
+      color: white;
+      border: none;
       padding: 12px 24px;
       border-radius: 8px;
       font-size: 16px;
       font-weight: 500;
       cursor: pointer;
       transition: background-color 0.2s ease;
-      border: none;
-      flex: 1;
-    }
-    
-    .submit-btn {
-      background: #3b82f6;
-      color: white;
+      width: 100%;
     }
     
     .submit-btn:hover {
@@ -259,75 +116,132 @@
       cursor: not-allowed;
     }
     
-    .cancel-btn {
-      background: #4a5568;
-      color: #e2e8f0;
-    }
-    
-    .cancel-btn:hover {
-      background: #374151;
-    }
-    
-    .add-group-input {
-      display: flex;
-      gap: 12px;
-      align-items: flex-end;
-    }
-    
-    .add-group-input .form-group {
-      flex: 1;
-      margin-bottom: 0;
-    }
-    
-    .add-group-input button {
-      padding: 12px 24px;
-      background: #10b981;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 500;
-      white-space: nowrap;
-    }
-    
-    .add-group-input button:hover {
-      background: #059669;
-    }
-    
-    /* Groups and Links */
-    .groups-header {
+    .search-and-groups-section {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 12px;
       margin-bottom: 20px;
       flex-wrap: wrap;
-      gap: 12px;
     }
     
     .groups-title {
       font-size: 1.5rem;
       font-weight: 600;
       color: #f7fafc;
+      white-space: nowrap;
     }
     
-    .results-info {
-      color: #a0aec0;
+    .search-input {
+      flex: 1;
+      min-width: 200px;
+      max-width: 300px;
+      padding: 10px 16px;
+      border: 1px solid #4a5568;
+      border-radius: 8px;
       font-size: 14px;
+      background: #1a202c;
+      color: #e2e8f0;
+      transition: border-color 0.2s ease;
+    }
+    
+    .search-input:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+    }
+    
+    .search-input::placeholder {
+      color: #a0aec0;
+    }
+    
+    .action-buttons {
+      display: flex;
+      gap: 8px;
+      margin-left: auto;
+    }
+    
+    .add-group-btn, .add-link-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      border: none;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      font-weight: 600;
+    }
+    
+    .add-group-btn {
+      background: #10b981;
+    }
+    
+    .add-group-btn:hover {
+      background: #059669;
+      transform: scale(1.05);
+    }
+    
+    .add-link-btn {
+      background: #3b82f6;
+    }
+    
+    .add-link-btn:hover {
+      background: #2563eb;
+      transform: scale(1.05);
+    }
+    
+    .add-group-form {
+      background: #2d3748;
+      border: 1px solid #4a5568;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+      display: none;
+    }
+    
+    .add-group-form.show {
+      display: block;
+    }
+    
+    .add-group-input {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    
+    .add-group-input input {
+      flex: 1;
+    }
+    
+    .add-group-input button {
+      padding: 10px 16px;
+      background: #10b981;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    
+    .add-group-input button:hover {
+      background: #059669;
     }
     
     .group-tabs {
       display: flex;
       gap: 8px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       flex-wrap: wrap;
     }
     
     .group-tab {
       position: relative;
-      padding: 12px 20px;
+      padding: 10px 20px;
       background: #2d3748;
-      border: 2px solid #4a5568;
-      border-radius: 12px;
+      border: 1px solid #4a5568;
+      border-radius: 8px;
       cursor: pointer;
       transition: all 0.2s ease;
       font-size: 14px;
@@ -335,16 +249,14 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      font-weight: 500;
     }
     
     .group-tab:hover {
       background: #374151;
-      transform: translateY(-1px);
     }
     
     .group-tab.active {
-      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      background: #3b82f6;
       color: white;
       border-color: #3b82f6;
     }
@@ -355,17 +267,15 @@
     }
     
     .group-tab.main.active {
-      background: linear-gradient(135deg, #2d3748, #374151);
+      background: #2d3748;
       border-color: #3b82f6;
-      border-style: solid;
     }
     
     .group-tab .count {
       background: rgba(255, 255, 255, 0.2);
-      padding: 2px 8px;
-      border-radius: 12px;
+      padding: 2px 6px;
+      border-radius: 10px;
       font-size: 12px;
-      font-weight: 600;
     }
     
     .group-menu {
@@ -383,8 +293,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 14px;
-      font-weight: bold;
+      font-size: 12px;
     }
     
     .menu-trigger:hover {
@@ -396,7 +305,7 @@
       top: 100%;
       right: 0;
       background: #2d3748;
-      border: 2px solid #4a5568;
+      border: 1px solid #4a5568;
       border-radius: 8px;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
       z-index: 100;
@@ -409,12 +318,11 @@
     }
     
     .menu-item {
-      padding: 10px 14px;
+      padding: 8px 12px;
       cursor: pointer;
       color: #e2e8f0;
       font-size: 14px;
       border-bottom: 1px solid #4a5568;
-      font-weight: 500;
     }
     
     .menu-item:last-child {
@@ -436,22 +344,21 @@
     .links-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 24px;
+      gap: 20px;
     }
     
     .link-card {
       background: #2d3748;
-      border: 2px solid #4a5568;
-      border-radius: 16px;
+      border: 1px solid #4a5568;
+      border-radius: 12px;
       overflow: hidden;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     }
     
     .link-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
-      border-color: #3b82f6;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
     }
     
     .preview-image {
@@ -459,54 +366,47 @@
       height: 180px;
       object-fit: cover;
       background: #1a202c;
-      border-bottom: 2px solid #4a5568;
+      border-bottom: 1px solid #4a5568;
     }
     
     .card-content {
-      padding: 20px;
+      padding: 16px;
     }
     
     .card-title {
       font-size: 1.1rem;
       font-weight: 600;
       color: #f7fafc;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       line-height: 1.3;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
     
     .card-url {
       color: #a0aec0;
       font-size: 0.9rem;
       word-break: break-all;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
     
     .card-actions {
       display: flex;
       gap: 8px;
-      flex-wrap: wrap;
     }
     
     .action-btn {
       flex: 1;
-      min-width: 70px;
-      padding: 10px 12px;
-      border: 2px solid #4a5568;
+      padding: 8px 12px;
+      border: 1px solid #4a5568;
       background: #1a202c;
       color: #e2e8f0;
-      border-radius: 8px;
+      border-radius: 6px;
       cursor: pointer;
-      font-size: 13px;
-      font-weight: 500;
+      font-size: 14px;
       transition: all 0.2s ease;
     }
     
     .action-btn:hover {
       background: #2d3748;
-      transform: translateY(-1px);
     }
     
     .action-btn.open {
@@ -541,25 +441,22 @@
     
     .empty-state {
       text-align: center;
-      padding: 80px 20px;
+      padding: 60px 20px;
       color: #a0aec0;
     }
     
     .empty-state svg {
       width: 80px;
       height: 80px;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       opacity: 0.5;
     }
     
-    .empty-state h3 {
-      font-size: 1.2rem;
-      margin-bottom: 8px;
-      color: #e2e8f0;
-    }
-    
     .platform-icon {
-      font-size: 18px;
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+      vertical-align: middle;
     }
     
     .modal {
@@ -569,9 +466,8 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.7);
       z-index: 1000;
-      backdrop-filter: blur(4px);
     }
     
     .modal-content {
@@ -580,20 +476,19 @@
       left: 50%;
       transform: translate(-50%, -50%);
       background: #2d3748;
-      border-radius: 16px;
-      padding: 28px;
+      border-radius: 12px;
+      padding: 24px;
       min-width: 400px;
       max-width: 500px;
-      border: 2px solid #4a5568;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+      border: 1px solid #4a5568;
     }
     
     .modal-header {
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
     
     .modal-title {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-weight: 600;
       color: #f7fafc;
     }
@@ -601,137 +496,82 @@
     .modal-actions {
       display: flex;
       gap: 12px;
-      margin-top: 24px;
+      margin-top: 20px;
     }
     
     .btn-cancel {
       background: #4a5568;
       color: #e2e8f0;
       border: none;
-      padding: 12px 24px;
-      border-radius: 8px;
+      padding: 10px 20px;
+      border-radius: 6px;
       cursor: pointer;
       flex: 1;
-      font-weight: 500;
-    }
-    
-    .btn-cancel:hover {
-      background: #374151;
     }
     
     .btn-confirm {
       background: #3b82f6;
       color: white;
       border: none;
-      padding: 12px 24px;
-      border-radius: 8px;
+      padding: 10px 20px;
+      border-radius: 6px;
       cursor: pointer;
       flex: 1;
-      font-weight: 500;
-    }
-    
-    .btn-confirm:hover {
-      background: #2563eb;
     }
     
     /* Mobile Responsive */
     @media (max-width: 768px) {
-      body {
-        padding: 16px;
-      }
-      
-      .header h1 {
-        font-size: 2rem;
-      }
-      
-      .controls-bar {
+      .search-and-groups-section {
         flex-direction: column;
+        align-items: stretch;
         gap: 16px;
       }
       
-      .search-container {
-        order: 1;
-        width: 100%;
+      .groups-title {
+        text-align: center;
       }
       
-      .add-link-btn {
-        order: 2;
-        width: 100%;
-        height: 52px;
-        border-radius: 12px;
+      .search-input {
+        max-width: none;
+        min-width: auto;
       }
       
-      .add-group-btn {
-        order: 3;
-        width: 100%;
-        height: 52px;
-        border-radius: 12px;
-      }
-      
-      .links-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-      
-      .group-tabs {
-        gap: 6px;
-      }
-      
-      .group-tab {
-        padding: 10px 16px;
-        font-size: 13px;
+      .action-buttons {
+        margin-left: 0;
+        justify-content: center;
       }
       
       .modal-content {
         min-width: 300px;
         margin: 20px;
-        padding: 24px;
       }
       
-      .card-actions {
-        gap: 6px;
-      }
-      
-      .action-btn {
-        font-size: 12px;
-        padding: 8px 10px;
-      }
-      
-      .add-group-input {
-        flex-direction: column;
-        gap: 16px;
-      }
-      
-      .add-group-input .form-group {
-        margin-bottom: 0;
-      }
-      
-      .add-group-input button {
-        width: 100%;
+      .links-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       }
     }
     
     @media (max-width: 480px) {
-      .header h1 {
-        font-size: 1.8rem;
-      }
-      
-      .header p {
-        font-size: 1rem;
-      }
-      
-      .controls-bar {
+      .search-and-groups-section {
         gap: 12px;
       }
       
-      .add-link-btn, .add-group-btn {
-        height: 48px;
-        font-size: 18px;
+      .add-group-btn, .add-link-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
       }
       
-      .group-tab {
-        padding: 8px 12px;
-        font-size: 12px;
+      .links-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .card-actions {
+        flex-wrap: wrap;
+      }
+      
+      .action-btn {
+        min-width: calc(50% - 4px);
       }
     }
   </style>
@@ -743,28 +583,8 @@
       <p>Save and organize your social media and video links with groups</p>
     </div>
     
-    <!-- Top Controls Bar -->
-    <div class="controls-bar">
-      <button class="add-link-btn" id="addLinkBtn" title="Add new link">
-        🔗
-      </button>
-      
-      <div class="search-container">
-        <div class="search-icon"></div>
-        <input type="text" class="search-input" id="searchInput" placeholder="🔍 Search">
-        <button class="clear-search" id="clearSearch" title="Clear search">✕</button>
-      </div>
-      
-      <button class="add-group-btn" id="addGroupBtn" title="Add new group">
-        👥
-      </button>
-    </div>
-    
-    <!-- Add Link Form -->
-    <form class="add-form" id="linkForm">
-      <div class="form-title">
-        🔗 Add New Link
-      </div>
+    <form class="add-form" id="linkForm" style="display: none;">
+      <div class="form-title">Add New Link</div>
       <div class="form-group">
         <label for="linkName">Display Name</label>
         <input type="text" id="linkName" placeholder="e.g., My YouTube Channel" required>
@@ -779,34 +599,24 @@
           <option value="">No group (show on main screen)</option>
         </select>
       </div>
-      <div class="form-actions">
-        <button type="button" class="cancel-btn" id="cancelLinkBtn">Cancel</button>
-        <button type="submit" class="submit-btn" id="submitBtn">Save Link</button>
-      </div>
+      <button type="submit" class="submit-btn" id="submitBtn">Save Link</button>
     </form>
     
-    <!-- Add Group Form -->
-    <div class="add-group-form" id="addGroupForm">
-      <div class="form-title">
-        👥 Create New Group
-      </div>
-      <div class="add-group-input">
-        <div class="form-group">
-          <label for="newGroupName">Group Name</label>
-          <input type="text" id="newGroupName" placeholder="Enter group name" required>
-        </div>
-        <button type="button" onclick="linkSaver.createGroup()">Create</button>
-      </div>
-      <div class="form-actions">
-        <button type="button" class="cancel-btn" id="cancelGroupBtn">Cancel</button>
-      </div>
-    </div>
-    
-    <!-- Groups and Links Section -->
     <div class="groups-section">
-      <div class="groups-header">
+      <div class="search-and-groups-section">
         <h2 class="groups-title">My Links</h2>
-        <div class="results-info" id="resultsInfo"></div>
+        <input type="text" class="search-input" id="searchInput" placeholder="Search links...">
+        <div class="action-buttons">
+          <button class="add-group-btn" id="addGroupBtn" title="Add new group">+</button>
+          <button class="add-link-btn" id="addLinkBtn" title="Add new link">🔗</button>
+        </div>
+      </div>
+      
+      <div class="add-group-form" id="addGroupForm">
+        <div class="add-group-input">
+          <input type="text" id="newGroupName" placeholder="Enter group name" required>
+          <button type="button" onclick="linkSaver.createGroup()">Add</button>
+        </div>
       </div>
       
       <div class="group-tabs" id="groupTabs"></div>
@@ -816,7 +626,7 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.102m0-8.486l2.8-2.8a4 4 0 015.657 5.657l-2.8 2.8a4 4 0 01-5.657 0z"></path>
         </svg>
         <h3>No links here yet</h3>
-        <p>Add your first link using the button above</p>
+        <p>Add your first link using the + button above</p>
       </div>
     </div>
   </div>
@@ -883,12 +693,12 @@
       constructor() {
         this.groups = this.loadGroups();
         this.links = this.loadLinks();
-        this.currentView = 'main'; // 'main' or groupId
-        this.searchQuery = '';
+        this.currentView = 'main';
         this.editingLink = null;
         this.movingLink = null;
         this.editingGroup = null;
         this.activeMenu = null;
+        this.searchTerm = '';
         
         this.initEventListeners();
         this.render();
@@ -989,20 +799,10 @@
       }
       
       initEventListeners() {
-        // Form submissions
         document.getElementById('linkForm').addEventListener('submit', (e) => this.handleSubmit(e));
-        
-        // Button clicks
-        document.getElementById('addLinkBtn').addEventListener('click', () => this.toggleLinkForm());
         document.getElementById('addGroupBtn').addEventListener('click', () => this.toggleGroupForm());
-        document.getElementById('cancelLinkBtn').addEventListener('click', () => this.hideLinkForm());
-        document.getElementById('cancelGroupBtn').addEventListener('click', () => this.hideGroupForm());
-        
-        // Search functionality
-        document.getElementById('searchInput').addEventListener('input', (e) => this.handleSearch(e.target.value));
-        document.getElementById('clearSearch').addEventListener('click', () => this.clearSearch());
-        
-        // Group name input
+        document.getElementById('addLinkBtn').addEventListener('click', () => this.toggleLinkForm());
+        document.getElementById('searchInput').addEventListener('input', (e) => this.handleSearch(e));
         document.getElementById('newGroupName').addEventListener('keypress', (e) => {
           if (e.key === 'Enter') this.createGroup();
         });
@@ -1013,77 +813,44 @@
             this.closeActiveMenu();
           }
         });
-        
-        // Close modals when clicking outside
-        document.addEventListener('click', (e) => {
-          if (e.target.classList.contains('modal')) {
-            this.closeAllModals();
-          }
-        });
+      }
+      
+      handleSearch(e) {
+        this.searchTerm = e.target.value.toLowerCase();
+        this.render();
       }
       
       toggleLinkForm() {
         const form = document.getElementById('linkForm');
-        const groupForm = document.getElementById('addGroupForm');
+        const isVisible = form.style.display !== 'none';
         
-        // Hide group form if open
-        groupForm.classList.remove('show');
-        
-        if (form.classList.contains('show')) {
-          this.hideLinkForm();
+        if (isVisible) {
+          form.style.display = 'none';
+          // Reset form
+          document.getElementById('linkName').value = '';
+          document.getElementById('linkUrl').value = '';
+          document.getElementById('linkGroup').value = '';
         } else {
-          form.classList.add('show');
+          form.style.display = 'block';
           document.getElementById('linkName').focus();
+          // Hide group form if it's open
+          document.getElementById('addGroupForm').classList.remove('show');
         }
-      }
-      
-      hideLinkForm() {
-        const form = document.getElementById('linkForm');
-        form.classList.remove('show');
-        // Reset form
-        form.reset();
       }
       
       toggleGroupForm() {
         const form = document.getElementById('addGroupForm');
-        const linkForm = document.getElementById('linkForm');
-        
-        // Hide link form if open
-        linkForm.classList.remove('show');
+        const input = document.getElementById('newGroupName');
         
         if (form.classList.contains('show')) {
-          this.hideGroupForm();
+          form.classList.remove('show');
+          input.value = '';
         } else {
           form.classList.add('show');
-          document.getElementById('newGroupName').focus();
+          input.focus();
+          // Hide link form if it's open
+          document.getElementById('linkForm').style.display = 'none';
         }
-      }
-      
-      hideGroupForm() {
-        const form = document.getElementById('addGroupForm');
-        form.classList.remove('show');
-        // Reset form
-        document.getElementById('newGroupName').value = '';
-      }
-      
-      handleSearch(query) {
-        this.searchQuery = query.toLowerCase().trim();
-        
-        const clearBtn = document.getElementById('clearSearch');
-        if (this.searchQuery) {
-          clearBtn.classList.add('show');
-        } else {
-          clearBtn.classList.remove('show');
-        }
-        
-        this.render();
-      }
-      
-      clearSearch() {
-        document.getElementById('searchInput').value = '';
-        this.searchQuery = '';
-        document.getElementById('clearSearch').classList.remove('show');
-        this.render();
       }
       
       createGroup() {
@@ -1109,7 +876,8 @@
         this.render();
         
         // Reset form
-        this.hideGroupForm();
+        nameInput.value = '';
+        document.getElementById('addGroupForm').classList.remove('show');
       }
       
       async handleSubmit(e) {
@@ -1147,8 +915,11 @@
           this.saveLinks();
           this.render();
           
-          // Reset form
-          this.hideLinkForm();
+          // Reset and hide form
+          nameInput.value = '';
+          urlInput.value = '';
+          groupInput.value = '';
+          document.getElementById('linkForm').style.display = 'none';
           
         } catch (error) {
           alert('Failed to save link. Please try again.');
@@ -1186,15 +957,6 @@
           }
           this.activeMenu = null;
         }
-      }
-      
-      closeAllModals() {
-        document.getElementById('editModal').style.display = 'none';
-        document.getElementById('moveModal').style.display = 'none';
-        document.getElementById('editGroupModal').style.display = 'none';
-        this.editingLink = null;
-        this.movingLink = null;
-        this.editingGroup = null;
       }
       
       editGroup(groupId) {
@@ -1350,24 +1112,12 @@
         this.render();
       }
       
-      filterLinks(links) {
-        if (!this.searchQuery) return links;
-        
-        return links.filter(link => 
-          link.name.toLowerCase().includes(this.searchQuery) ||
-          link.url.toLowerCase().includes(this.searchQuery)
-        );
-      }
-      
       renderGroupTabs() {
         const tabsContainer = document.getElementById('groupTabs');
         tabsContainer.innerHTML = '';
         
-        // Get filtered links for counts
-        const filteredLinks = this.filterLinks(this.links);
-        
         // Main screen tab
-        const mainLinkCount = filteredLinks.filter(l => !l.groupId).length;
+        const mainLinkCount = this.links.filter(l => !l.groupId).length;
         const mainTab = document.createElement('div');
         mainTab.className = `group-tab main ${this.currentView === 'main' ? 'active' : ''}`;
         mainTab.innerHTML = `
@@ -1378,7 +1128,7 @@
         
         // Group tabs
         this.groups.forEach(group => {
-          const linkCount = filteredLinks.filter(l => l.groupId === group.id).length;
+          const linkCount = this.links.filter(l => l.groupId === group.id).length;
           
           const tab = document.createElement('div');
           tab.className = `group-tab ${group.id === this.currentView ? 'active' : ''}`;
@@ -1416,33 +1166,27 @@
       
       getCurrentLinks() {
         let links;
+        
         if (this.currentView === 'main') {
           links = this.links.filter(l => !l.groupId);
         } else {
           links = this.links.filter(l => l.groupId === this.currentView);
         }
         
-        return this.filterLinks(links);
-      }
-      
-      updateResultsInfo() {
-        const resultsInfo = document.getElementById('resultsInfo');
-        const currentLinks = this.getCurrentLinks();
-        const totalLinks = this.currentView === 'main' 
-          ? this.links.filter(l => !l.groupId).length 
-          : this.links.filter(l => l.groupId === this.currentView).length;
-        
-        if (this.searchQuery) {
-          resultsInfo.textContent = `${currentLinks.length} of ${totalLinks} links found`;
-        } else {
-          resultsInfo.textContent = `${totalLinks} links`;
+        // Apply search filter
+        if (this.searchTerm) {
+          links = links.filter(link => 
+            link.name.toLowerCase().includes(this.searchTerm) ||
+            link.url.toLowerCase().includes(this.searchTerm)
+          );
         }
+        
+        return links;
       }
       
       render() {
         this.renderGroupTabs();
         this.renderGroupOptions();
-        this.updateResultsInfo();
         
         const container = document.getElementById('linksContainer');
         const emptyState = document.getElementById('emptyState');
@@ -1454,12 +1198,17 @@
           emptyState.style.display = 'block';
           
           // Update empty state message based on search
-          const emptyStateText = emptyState.querySelector('p');
-          if (this.searchQuery) {
-            emptyStateText.textContent = 'No links match your search';
+          const emptyTitle = emptyState.querySelector('h3');
+          const emptyDesc = emptyState.querySelector('p');
+          
+          if (this.searchTerm) {
+            emptyTitle.textContent = 'No links found';
+            emptyDesc.textContent = `No links match "${this.searchTerm}"`;
           } else {
-            emptyStateText.textContent = 'Add your first link using the button above';
+            emptyTitle.textContent = 'No links here yet';
+            emptyDesc.textContent = 'Add your first link using the 🔗 button above';
           }
+          
           return;
         }
         
