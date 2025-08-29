@@ -5,575 +5,134 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>My Link Saver</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      background: #1a202c;
-      color: #e2e8f0;
-      line-height: 1.6;
-      padding: 20px;
+      background: #0a0a0a; color: #e5e5e5; line-height: 1.6; padding: 20px; min-height: 100vh;
     }
-    
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    
-    .header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    
-    .header h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #f7fafc;
-      margin-bottom: 8px;
-    }
-    
-    .header p {
-      color: #a0aec0;
-      font-size: 1.1rem;
-    }
-    
-    .add-form {
-      background: #2d3748;
-      border: 1px solid #4a5568;
-      border-radius: 12px;
-      padding: 24px;
-      margin-bottom: 32px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    }
-    
-    .form-title {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #f7fafc;
-      margin-bottom: 16px;
-    }
-    
-    .form-group {
-      margin-bottom: 16px;
-    }
-    
-    .form-group:last-child {
-      margin-bottom: 0;
-    }
-    
-    label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: 500;
-      color: #e2e8f0;
-    }
-    
+    .container { max-width: 1200px; margin: 0 auto; }
+    .header { text-align: center; margin-bottom: 40px; }
+    .header h1 { font-size: 2.5rem; font-weight: 700; color: #ffffff; margin-bottom: 8px; }
+    .header p { color: #a3a3a3; font-size: 1.1rem; }
+
+    .add-form { background: #1a1a1a; border: 1px solid #333333; border-radius: 8px; padding: 24px; margin-bottom: 32px; }
+    .form-title { font-size: 1.2rem; font-weight: 600; color: #ffffff; margin-bottom: 16px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group:last-child { margin-bottom: 0; }
+    label { display: block; margin-bottom: 6px; font-weight: 500; color: #e5e5e5; }
     input[type="text"], input[type="url"], select {
-      width: 100%;
-      padding: 12px 16px;
-      border: 1px solid #4a5568;
-      border-radius: 8px;
-      font-size: 16px;
-      background: #1a202c;
-      color: #e2e8f0;
-      transition: border-color 0.2s ease;
+      width: 100%; padding: 12px 16px; border: 1px solid #404040; border-radius: 6px; font-size: 16px; background: #262626; color: #e5e5e5; transition: border-color 0.2s ease;
     }
-    
-    input[type="text"]:focus, input[type="url"]:focus, select:focus {
-      outline: none;
-      border-color: #3b82f6;
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
-    }
-    
-    select option {
-      background: #1a202c;
-      color: #e2e8f0;
-    }
-    
-    .submit-btn {
-      background: #3b82f6;
-      color: white;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: background-color 0.2s ease;
-      width: 100%;
-    }
-    
-    .submit-btn:hover {
-      background: #2563eb;
-    }
-    
-    .submit-btn:disabled {
-      background: #4a5568;
-      cursor: not-allowed;
-    }
-    
-    .search-and-groups-section {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-    }
-    
-    .groups-title {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #f7fafc;
-      white-space: nowrap;
-    }
-    
-    .search-input {
-      flex: 1;
-      min-width: 200px;
-      max-width: 300px;
-      padding: 10px 16px;
-      border: 1px solid #4a5568;
-      border-radius: 8px;
-      font-size: 14px;
-      background: #1a202c;
-      color: #e2e8f0;
-      transition: border-color 0.2s ease;
-    }
-    
-    .search-input:focus {
-      outline: none;
-      border-color: #3b82f6;
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
-    }
-    
-    .search-input::placeholder {
-      color: #a0aec0;
-    }
-    
-    .action-buttons {
-      display: flex;
-      gap: 8px;
-      margin-left: auto;
-    }
-    
+    input[type="text"]:focus, input[type="url"]:focus, select:focus { outline: none; border-color: #666666; background: #2a2a2a; }
+    select option { background: #262626; color: #e5e5e5; }
+    .submit-btn { background: #ffffff; color: #000000; border: none; padding: 12px 24px; border-radius: 6px; font-size: 16px; font-weight: 500; cursor: pointer; transition: background-color 0.2s ease; width: 100%; }
+    .submit-btn:hover { background: #e5e5e5; }
+    .submit-btn:disabled { background: #404040; color: #a3a3a3; cursor: not-allowed; }
+
+    .search-and-groups-section { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+    .groups-title { font-size: 1.5rem; font-weight: 600; color: #ffffff; margin: 0; }
+    .search-input { flex: 1; min-width: 200px; padding: 10px 16px; border: 1px solid #404040; border-radius: 6px; background: #262626; color: #e5e5e5; font-size: 16px; }
+    .search-input:focus { outline: none; border-color: #666666; background: #2a2a2a; }
+
+    .action-buttons { display: flex; gap: 8px; }
     .add-group-btn, .add-link-btn {
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
-      border: none;
-      color: white;
-      font-size: 18px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s ease;
-      font-weight: 600;
+      width: 44px; height: 44px; border-radius: 8px; border: 1px solid #404040; color: #ffffff; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; font-weight: 600; background: #1a1a1a;
     }
-    
-    .add-group-btn {
-      background: #10b981;
-    }
-    
-    .add-group-btn:hover {
-      background: #059669;
-      transform: scale(1.05);
-    }
-    
-    .add-link-btn {
-      background: #3b82f6;
-    }
-    
-    .add-link-btn:hover {
-      background: #2563eb;
-      transform: scale(1.05);
-    }
-    
-    .add-group-form {
-      background: #2d3748;
-      border: 1px solid #4a5568;
-      border-radius: 8px;
-      padding: 16px;
-      margin-bottom: 16px;
-      display: none;
-    }
-    
-    .add-group-form.show {
-      display: block;
-    }
-    
-    .add-group-input {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-    
-    .add-group-input input {
-      flex: 1;
-    }
-    
-    .add-group-input button {
-      padding: 10px 16px;
-      background: #10b981;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    
-    .add-group-input button:hover {
-      background: #059669;
-    }
-    
-    .group-tabs {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-    }
-    
-    .group-tab {
-      position: relative;
-      padding: 10px 20px;
-      background: #2d3748;
-      border: 1px solid #4a5568;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      font-size: 14px;
-      color: #e2e8f0;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    
-    .group-tab:hover {
-      background: #374151;
-    }
-    
-    .group-tab.active {
-      background: #3b82f6;
-      color: white;
-      border-color: #3b82f6;
-    }
-    
-    .group-tab.main {
-      background: #1a202c;
-      border: 2px dashed #4a5568;
-    }
-    
-    .group-tab.main.active {
-      background: #2d3748;
-      border-color: #3b82f6;
-    }
-    
-    .group-tab .count {
-      background: rgba(255, 255, 255, 0.2);
-      padding: 2px 6px;
-      border-radius: 10px;
-      font-size: 12px;
-    }
-    
-    .group-menu {
-      position: relative;
-    }
-    
-    .menu-trigger {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
-      border: none;
-      color: currentColor;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-    }
-    
-    .menu-trigger:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-    
-    .menu-dropdown {
-      position: absolute;
-      top: 100%;
-      right: 0;
-      background: #2d3748;
-      border: 1px solid #4a5568;
-      border-radius: 8px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-      z-index: 100;
-      min-width: 120px;
-      display: none;
-    }
-    
-    .menu-dropdown.show {
-      display: block;
-    }
-    
-    .menu-item {
-      padding: 8px 12px;
-      cursor: pointer;
-      color: #e2e8f0;
-      font-size: 14px;
-      border-bottom: 1px solid #4a5568;
-    }
-    
-    .menu-item:last-child {
-      border-bottom: none;
-    }
-    
-    .menu-item:hover {
-      background: #374151;
-    }
-    
-    .menu-item.delete {
-      color: #ef4444;
-    }
-    
-    .menu-item.delete:hover {
-      background: rgba(239, 68, 68, 0.1);
-    }
-    
-    .links-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 20px;
-    }
-    
-    .link-card {
-      background: #2d3748;
-      border: 1px solid #4a5568;
-      border-radius: 12px;
-      overflow: hidden;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    }
-    
-    .link-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
-    }
-    
-    .preview-image {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      background: #1a202c;
-      border-bottom: 1px solid #4a5568;
-    }
-    
-    .card-content {
-      padding: 16px;
-    }
-    
-    .card-title {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #f7fafc;
-      margin-bottom: 6px;
-      line-height: 1.3;
-    }
-    
-    .card-url {
-      color: #a0aec0;
-      font-size: 0.9rem;
-      word-break: break-all;
-      margin-bottom: 12px;
-    }
-    
-    .card-actions {
-      display: flex;
-      gap: 8px;
-    }
-    
-    .action-btn {
-      flex: 1;
-      padding: 8px 12px;
-      border: 1px solid #4a5568;
-      background: #1a202c;
-      color: #e2e8f0;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 14px;
-      transition: all 0.2s ease;
-    }
-    
-    .action-btn:hover {
-      background: #2d3748;
-    }
-    
-    .action-btn.open {
-      background: #3b82f6;
-      color: white;
-      border-color: #3b82f6;
-    }
-    
-    .action-btn.open:hover {
-      background: #2563eb;
-    }
-    
-    .action-btn.move {
-      background: #10b981;
-      color: white;
-      border-color: #10b981;
-    }
-    
-    .action-btn.move:hover {
-      background: #059669;
-    }
-    
-    .action-btn.delete {
-      background: #ef4444;
-      color: white;
-      border-color: #ef4444;
-    }
-    
-    .action-btn.delete:hover {
-      background: #dc2626;
-    }
-    
-    .empty-state {
-      text-align: center;
-      padding: 60px 20px;
-      color: #a0aec0;
-    }
-    
-    .empty-state svg {
-      width: 80px;
-      height: 80px;
-      margin-bottom: 16px;
-      opacity: 0.5;
-    }
-    
-    .platform-icon {
-      width: 20px;
-      height: 20px;
-      margin-right: 8px;
-      vertical-align: middle;
-    }
-    
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      z-index: 1000;
-    }
-    
-    .modal-content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: #2d3748;
-      border-radius: 12px;
-      padding: 24px;
-      min-width: 400px;
-      max-width: 500px;
-      border: 1px solid #4a5568;
-    }
-    
-    .modal-header {
-      margin-bottom: 16px;
-    }
-    
-    .modal-title {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #f7fafc;
-    }
-    
-    .modal-actions {
-      display: flex;
-      gap: 12px;
-      margin-top: 20px;
-    }
-    
-    .btn-cancel {
-      background: #4a5568;
-      color: #e2e8f0;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 6px;
-      cursor: pointer;
-      flex: 1;
-    }
-    
-    .btn-confirm {
-      background: #3b82f6;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 6px;
-      cursor: pointer;
-      flex: 1;
-    }
-    
+    .add-group-btn:hover, .add-link-btn:hover { background: #262626; border-color: #666666; }
+
+    .add-group-form { background: #1a1a1a; border: 1px solid #333333; border-radius: 6px; padding: 16px; margin-bottom: 16px; display: none; }
+    .add-group-form.show { display: block; }
+    .add-group-input { display: flex; gap: 8px; align-items: center; }
+    .add-group-input input { flex: 1; }
+    .add-group-input .btn-group { display: flex; gap: 8px; }
+    .add-group-input button { padding: 10px 16px; color: #000000; background: #ffffff; border: none; border-radius: 4px; cursor: pointer; font-size: 14px; font-weight: 500; transition: background-color 0.2s ease; }
+    .add-group-input button:hover { background: #e5e5e5; }
+    .btn-cancel-group { background: #404040 !important; color: #e5e5e5 !important; }
+    .btn-cancel-group:hover { background: #525252 !important; }
+
+    .form-actions { display: flex; gap: 12px; margin-top: 16px; }
+    .btn-cancel-link { background: #404040; color: #e5e5e5; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: 500; transition: background-color 0.2s ease; flex: 1; }
+    .btn-cancel-link:hover { background: #525252; }
+
+    .group-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+    .group-tab { position: relative; padding: 10px 16px; background: #1a1a1a; border: 1px solid #404040; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; font-size: 14px; color: #e5e5e5; display: flex; align-items: center; gap: 8px; }
+    .group-tab:hover { background: #262626; border-color: #666666; }
+    .group-tab.active { background: #ffffff; color: #000000; border-color: #ffffff; }
+    .group-tab.main { background: #0a0a0a; border: 1px dashed #404040; }
+    .group-tab.main.active { background: #ffffff; color: #000000; border-color: #ffffff; }
+    .group-tab .count { background: rgba(255, 255, 255, 0.2); padding: 2px 6px; border-radius: 10px; font-size: 12px; color: inherit; }
+    .group-tab.active .count { background: rgba(0, 0, 0, 0.2); }
+
+    .group-menu { position: relative; }
+    .menu-trigger { width: 20px; height: 20px; border-radius: 4px; background: rgba(255, 255, 255, 0.1); border: none; color: currentColor; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 12px; }
+    .menu-trigger:hover { background: rgba(255, 255, 255, 0.2); }
+    .group-tab.active .menu-trigger:hover { background: rgba(0, 0, 0, 0.2); }
+    .menu-dropdown { position: absolute; top: 100%; right: 0; background: #1a1a1a; border: 1px solid #404040; border-radius: 6px; z-index: 100; min-width: 120px; display: none; margin-top: 4px; }
+    .menu-dropdown.show { display: block; }
+    .menu-item { padding: 8px 12px; cursor: pointer; color: #e5e5e5; font-size: 14px; border-bottom: 1px solid #333333; }
+    .menu-item:last-child { border-bottom: none; }
+    .menu-item:hover { background: #262626; }
+    .menu-item.delete { color: #ffffff; }
+    .menu-item.delete:hover { background: #333333; }
+
+    .links-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+    .link-card { background: #1a1a1a; border: 1px solid #333333; border-radius: 8px; overflow: hidden; transition: transform 0.2s ease, border-color 0.2s ease; }
+    .link-card:hover { transform: translateY(-2px); border-color: #666666; }
+    .preview-image { width: 100%; height: 180px; object-fit: cover; background: #0a0a0a; border-bottom: 1px solid #333333; }
+    .card-content { padding: 16px; }
+    .card-title { font-size: 1.1rem; font-weight: 600; color: #ffffff; margin-bottom: 6px; line-height: 1.3; display:flex; align-items:center; gap:8px; }
+    .card-url { color: #a3a3a3; font-size: 0.9rem; word-break: break-all; margin-bottom: 12px; }
+    .card-actions { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 8px; }
+    .action-btn { padding: 8px 12px; border: 1px solid #404040; background: #262626; color: #e5e5e5; border-radius: 4px; cursor: pointer; font-size: 14px; font-weight: 500; transition: all 0.2s ease; text-align: center; }
+    .action-btn:hover { background: #333333; border-color: #666666; }
+    .action-btn.open { background: #ffffff; color: #000000; border-color: #ffffff; }
+    .action-btn.open:hover { background: #e5e5e5; }
+    .action-btn.move { background: #404040; color: #ffffff; }
+    .action-btn.move:hover { background: #525252; }
+    .action-btn.delete { background: #262626; color: #ffffff; border-color: #666666; }
+    .action-btn.delete:hover { background: #404040; }
+
+    .empty-state { text-align: center; padding: 60px 20px; color: #a3a3a3; }
+    .empty-state svg { width: 80px; height: 80px; margin-bottom: 16px; opacity: 0.5; }
+
+    .icon { width: 20px; height: 20px; display:block; }
+    .platform-icon { width: 20px; height: 20px; display:inline-flex; align-items:center; justify-content:center; }
+
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 1000; }
+    .modal-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #1a1a1a; border-radius: 8px; padding: 24px; min-width: 400px; max-width: 500px; border: 1px solid #404040; }
+    .modal-header { margin-bottom: 16px; }
+    .modal-title { font-size: 1.2rem; font-weight: 600; color: #ffffff; }
+    .modal-actions { display: flex; gap: 12px; margin-top: 20px; }
+    .btn-cancel { background: #404040; color: #e5e5e5; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; flex: 1; font-weight: 500; }
+    .btn-cancel:hover { background: #525252; }
+    .btn-confirm { background: #ffffff; color: #000000; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; flex: 1; font-weight: 500; }
+    .btn-confirm:hover { background: #e5e5e5; }
+
     /* Mobile Responsive */
     @media (max-width: 768px) {
-      .search-and-groups-section {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 16px;
-      }
-      
-      .groups-title {
-        text-align: center;
-      }
-      
-      .search-input {
-        max-width: none;
-        min-width: auto;
-      }
-      
-      .action-buttons {
-        margin-left: 0;
-        justify-content: center;
-      }
-      
-      .modal-content {
-        min-width: 300px;
-        margin: 20px;
-      }
-      
-      .links-grid {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      }
+      body { padding: 12px; }
+      .header h1 { font-size: 2rem; }
+      .header p { font-size: 1rem; }
+      .search-and-groups-section { flex-direction: column; align-items: stretch; gap: 12px; }
+      .groups-title { text-align: center; }
+      .search-input { min-width: unset; }
+      .action-buttons { justify-content: center; }
+      .add-group-btn, .add-link-btn { width: 40px; height: 40px; font-size: 14px; }
+      .modal-content { min-width: 300px; margin: 20px; max-width: calc(100vw - 40px); }
+      .links-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+      .add-group-input { flex-direction: column; align-items: stretch; gap: 12px; }
+      .add-group-input .btn-group { justify-content: center; }
+      .card-actions { grid-template-columns: repeat(2, 1fr); }
     }
-    
     @media (max-width: 480px) {
-      .search-and-groups-section {
-        gap: 12px;
-      }
-      
-      .add-group-btn, .add-link-btn {
-        width: 36px;
-        height: 36px;
-        font-size: 16px;
-      }
-      
-      .links-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .card-actions {
-        flex-wrap: wrap;
-      }
-      
-      .action-btn {
-        min-width: calc(50% - 4px);
-      }
+      .add-group-btn, .add-link-btn { width: 36px; height: 36px; font-size: 12px; }
+      .links-grid { grid-template-columns: 1fr; }
+      .card-actions { grid-template-columns: repeat(2, 1fr); }
+      .group-tabs { justify-content: center; }
     }
+
+    input:focus, select:focus, button:focus { box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2); }
+    .submit-btn:focus, .btn-confirm:focus { box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5); }
   </style>
 </head>
 <body>
@@ -582,7 +141,7 @@
       <h1>My Link Saver</h1>
       <p>Save and organize your social media and video links with groups</p>
     </div>
-    
+
     <form class="add-form" id="linkForm" style="display: none;">
       <div class="form-title">Add New Link</div>
       <div class="form-group">
@@ -599,26 +158,46 @@
           <option value="">No group (show on main screen)</option>
         </select>
       </div>
-      <button type="submit" class="submit-btn" id="submitBtn">Save Link</button>
+      <div class="form-actions">
+        <button type="button" class="btn-cancel-link" onclick="linkSaver.cancelLinkForm()">Cancel</button>
+        <button type="submit" class="submit-btn" id="submitBtn">Save Link</button>
+      </div>
     </form>
-    
+
     <div class="groups-section">
       <div class="search-and-groups-section">
         <h2 class="groups-title">My Links</h2>
         <input type="text" class="search-input" id="searchInput" placeholder="Search links...">
         <div class="action-buttons">
-          <button class="add-group-btn" id="addGroupBtn" title="Add new group">+</button>
-          <button class="add-link-btn" id="addLinkBtn" title="Add new link">🔗</button>
+          <!-- Group button with GROUP icon (users) -->
+          <button class="add-group-btn" id="addGroupBtn" title="Add new group" aria-label="Add group">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </button>
+          <!-- Link button with LINK/CHAIN icon -->
+          <button class="add-link-btn" id="addLinkBtn" title="Add new link" aria-label="Add link">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M10 13a5 5 0 0 0 7.07 0l3.54-3.54a5 5 0 1 0-7.07-7.07L12 3"/>
+              <path d="M14 11a5 5 0 0 0-7.07 0L3.39 14.54a5 5 0 1 0 7.07 7.07L12 21"/>
+            </svg>
+          </button>
         </div>
       </div>
-      
+
       <div class="add-group-form" id="addGroupForm">
         <div class="add-group-input">
           <input type="text" id="newGroupName" placeholder="Enter group name" required>
-          <button type="button" onclick="linkSaver.createGroup()">Add</button>
+          <div class="btn-group">
+            <button type="button" class="btn-cancel-group" onclick="linkSaver.cancelGroupForm()">Cancel</button>
+            <button type="button" onclick="linkSaver.createGroup()">Add</button>
+          </div>
         </div>
       </div>
-      
+
       <div class="group-tabs" id="groupTabs"></div>
       <div class="links-grid" id="linksContainer"></div>
       <div class="empty-state" id="emptyState">
@@ -699,530 +278,191 @@
         this.editingGroup = null;
         this.activeMenu = null;
         this.searchTerm = '';
-        
+
         this.initEventListeners();
         this.render();
       }
-      
+
       loadGroups() {
-        try {
-          return JSON.parse(localStorage.getItem('link-groups') || '[]');
-        } catch (e) {
-          return [];
-        }
+        try { return JSON.parse(localStorage.getItem('link-groups') || '[]'); } catch (e) { return []; }
       }
-      
-      saveGroups() {
-        localStorage.setItem('link-groups', JSON.stringify(this.groups));
-      }
-      
+      saveGroups() { localStorage.setItem('link-groups', JSON.stringify(this.groups)); }
+
       loadLinks() {
-        try {
-          return JSON.parse(localStorage.getItem('saved-links') || '[]');
-        } catch (e) {
-          return [];
-        }
+        try { return JSON.parse(localStorage.getItem('saved-links') || '[]'); } catch (e) { return []; }
       }
-      
-      saveLinks() {
-        localStorage.setItem('saved-links', JSON.stringify(this.links));
-      }
-      
+      saveLinks() { localStorage.setItem('saved-links', JSON.stringify(this.links)); }
+
       async getPreviewData(url) {
         try {
-          // For YouTube videos, extract video ID and use thumbnail
           const youtubeMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]+)/);
           if (youtubeMatch) {
-            return {
-              image: `https://img.youtube.com/vi/${youtubeMatch[1]}/maxresdefault.jpg`,
-              platform: 'youtube'
-            };
+            return { image: `https://img.youtube.com/vi/${youtubeMatch[1]}/maxresdefault.jpg`, platform: 'youtube' };
           }
-          
-          // For Instagram posts
-          if (url.includes('instagram.com')) {
-            return {
-              image: `https://www.google.com/s2/favicons?domain=instagram.com&sz=128`,
-              platform: 'instagram'
-            };
-          }
-          
-          // For Facebook
-          if (url.includes('facebook.com')) {
-            return {
-              image: `https://www.google.com/s2/favicons?domain=facebook.com&sz=128`,
-              platform: 'facebook'
-            };
-          }
-          
-          // For Twitter/X
-          if (url.includes('twitter.com') || url.includes('x.com')) {
-            return {
-              image: `https://www.google.com/s2/favicons?domain=twitter.com&sz=128`,
-              platform: 'twitter'
-            };
-          }
-          
-          // For TikTok
-          if (url.includes('tiktok.com')) {
-            return {
-              image: `https://www.google.com/s2/favicons?domain=tiktok.com&sz=128`,
-              platform: 'tiktok'
-            };
-          }
-          
-          // Fallback to domain favicon
+          if (url.includes('instagram.com')) { return { image: `https://www.google.com/s2/favicons?domain=instagram.com&sz=128`, platform: 'instagram' }; }
+          if (url.includes('facebook.com')) { return { image: `https://www.google.com/s2/favicons?domain=facebook.com&sz=128`, platform: 'facebook' }; }
+          if (url.includes('twitter.com') || url.includes('x.com')) { return { image: `https://www.google.com/s2/favicons?domain=twitter.com&sz=128`, platform: 'twitter' }; }
+          if (url.includes('tiktok.com')) { return { image: `https://www.google.com/s2/favicons?domain=tiktok.com&sz=128`, platform: 'tiktok' }; }
           const domain = new URL(url).hostname;
-          return {
-            image: `https://www.google.com/s2/favicons?domain=${domain}&sz=128`,
-            platform: 'other'
-          };
-          
+          return { image: `https://www.google.com/s2/favicons?domain=${domain}&sz=128`, platform: 'other' };
         } catch (e) {
-          return {
-            image: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200"><rect width="100%" height="100%" fill="%231a202c"/><text x="50%" y="50%" fill="%23a0aec0" font-size="16" text-anchor="middle" dominant-baseline="middle">No preview available</text></svg>',
-            platform: 'other'
-          };
+          return { image: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200"><rect width="100%" height="100%" fill="%230a0a0a"/><text x="50%" y="50%" fill="%23a3a3a3" font-size="16" text-anchor="middle" dominant-baseline="middle">No preview available</text></svg>', platform: 'other' };
         }
       }
-      
+
+      // Return INLINE SVG (no emojis) for platform icons
       getPlatformIcon(platform) {
-        const icons = {
-          youtube: '🎥',
-          instagram: '📸',
-          facebook: '👥',
-          twitter: '🐦',
-          tiktok: '🎵',
-          other: '🔗'
+        const svg = {
+          youtube: '<svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3.4 3.4 0 0 0-2.4-2.4C19 3.3 12 3.3 12 3.3s-7 0-9.1.5A3.4 3.4 0 0 0 .5 6.2 35 35 0 0 0 0 12a35 35 0 0 0 .5 5.8 3.4 3.4 0 0 0 2.4 2.4c2.1.5 9.1.5 9.1.5s7 0 9.1-.5a3.4 3.4 0 0 0 2.4-2.4A35 35 0 0 0 24 12a35 35 0 0 0-.5-5.8zM9.8 15.3V8.7l6 3.3-6 3.3z"/></svg>',
+          instagram: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>',
+          facebook: '<svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7h-2.4V12h2.4V9.8c0-2.4 1.4-3.8 3.6-3.8 1 0 2 .2 2 .2v2.2h-1.1c-1.1 0-1.4.7-1.4 1.3V12h2.5l-.4 2.9h-2v7A10 10 0 0 0 22 12"/></svg>',
+          twitter: '<svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 4.6a9.4 9.4 0 0 1-2.7.8 4.7 4.7 0 0 0 2-2.6 9.4 9.4 0 0 1-3 1.1A4.7 4.7 0 0 0 11.5 8a13.4 13.4 0 0 1-9.7-4.9 4.7 4.7 0 0 0 1.4 6.3 4.7 4.7 0 0 1-2.1-.6v.1a4.7 4.7 0 0 0 3.8 4.6 4.7 4.7 0 0 1-2.1.1 4.7 4.7 0 0 0 4.4 3.3A9.5 9.5 0 0 1 1 19.5 13.3 13.3 0 0 0 8.2 21c8 0 12.4-6.7 12.4-12.4v-.6A8.8 8.8 0 0 0 23 4.6z"/></svg>',
+          tiktok: '<svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 8.1a7.1 7.1 0 0 1-4.4-1.5v7.6a6.2 6.2 0 1 1-6.3-6.2 6.4 6.4 0 0 1 1.1.1v3.2a3.1 3.1 0 1 0 2.1 2.9V2h3.1a7.1 7.1 0 0 0 4.4 4.1V8.1z"/></svg>',
+          other: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>'
         };
-        return icons[platform] || icons.other;
+        return svg[platform] || svg.other;
       }
-      
+
       initEventListeners() {
         document.getElementById('linkForm').addEventListener('submit', (e) => this.handleSubmit(e));
         document.getElementById('addGroupBtn').addEventListener('click', () => this.toggleGroupForm());
         document.getElementById('addLinkBtn').addEventListener('click', () => this.toggleLinkForm());
         document.getElementById('searchInput').addEventListener('input', (e) => this.handleSearch(e));
-        document.getElementById('newGroupName').addEventListener('keypress', (e) => {
-          if (e.key === 'Enter') this.createGroup();
-        });
-        
-        // Close dropdowns when clicking outside
-        document.addEventListener('click', (e) => {
-          if (this.activeMenu && !e.target.closest('.group-menu')) {
-            this.closeActiveMenu();
-          }
-        });
+        document.getElementById('newGroupName').addEventListener('keypress', (e) => { if (e.key === 'Enter') this.createGroup(); });
+        document.addEventListener('click', (e) => { if (this.activeMenu && !e.target.closest('.group-menu')) { this.closeActiveMenu(); } });
       }
-      
-      handleSearch(e) {
-        this.searchTerm = e.target.value.toLowerCase();
-        this.render();
-      }
-      
+
+      handleSearch(e) { this.searchTerm = e.target.value.toLowerCase(); this.render(); }
+      cancelLinkForm() { const form = document.getElementById('linkForm'); form.style.display = 'none'; document.getElementById('linkName').value = ''; document.getElementById('linkUrl').value = ''; document.getElementById('linkGroup').value = ''; }
+      cancelGroupForm() { const form = document.getElementById('addGroupForm'); const input = document.getElementById('newGroupName'); form.classList.remove('show'); input.value=''; }
+
       toggleLinkForm() {
-        const form = document.getElementById('linkForm');
-        const isVisible = form.style.display !== 'none';
-        
-        if (isVisible) {
-          form.style.display = 'none';
-          // Reset form
-          document.getElementById('linkName').value = '';
-          document.getElementById('linkUrl').value = '';
-          document.getElementById('linkGroup').value = '';
-        } else {
-          form.style.display = 'block';
-          document.getElementById('linkName').focus();
-          // Hide group form if it's open
-          document.getElementById('addGroupForm').classList.remove('show');
-        }
+        const form = document.getElementById('linkForm'); const isVisible = form.style.display !== 'none';
+        if (isVisible) { form.style.display = 'none'; document.getElementById('linkName').value = ''; document.getElementById('linkUrl').value = ''; document.getElementById('linkGroup').value = ''; }
+        else { form.style.display = 'block'; document.getElementById('linkName').focus(); document.getElementById('addGroupForm').classList.remove('show'); }
       }
-      
       toggleGroupForm() {
-        const form = document.getElementById('addGroupForm');
-        const input = document.getElementById('newGroupName');
-        
-        if (form.classList.contains('show')) {
-          form.classList.remove('show');
-          input.value = '';
-        } else {
-          form.classList.add('show');
-          input.focus();
-          // Hide link form if it's open
-          document.getElementById('linkForm').style.display = 'none';
-        }
+        const form = document.getElementById('addGroupForm'); const input = document.getElementById('newGroupName');
+        if (form.classList.contains('show')) { form.classList.remove('show'); input.value=''; }
+        else { form.classList.add('show'); input.focus(); document.getElementById('linkForm').style.display = 'none'; }
       }
-      
+
       createGroup() {
-        const nameInput = document.getElementById('newGroupName');
-        const name = nameInput.value.trim();
-        
-        if (!name) return;
-        
-        // Check if group name already exists
-        if (this.groups.find(g => g.name.toLowerCase() === name.toLowerCase())) {
-          alert('A group with this name already exists');
-          return;
-        }
-        
-        const newGroup = {
-          id: Date.now().toString(36) + Math.random().toString(36).substr(2, 9),
-          name,
-          createdAt: new Date().toISOString()
-        };
-        
-        this.groups.push(newGroup);
-        this.saveGroups();
-        this.render();
-        
-        // Reset form
-        nameInput.value = '';
-        document.getElementById('addGroupForm').classList.remove('show');
+        const nameInput = document.getElementById('newGroupName'); const name = nameInput.value.trim(); if (!name) return;
+        if (this.groups.find(g => g.name.toLowerCase() === name.toLowerCase())) { alert('A group with this name already exists'); return; }
+        const newGroup = { id: Date.now().toString(36) + Math.random().toString(36).substr(2, 9), name, createdAt: new Date().toISOString() };
+        this.groups.push(newGroup); this.saveGroups(); this.render(); nameInput.value=''; document.getElementById('addGroupForm').classList.remove('show');
       }
-      
+
       async handleSubmit(e) {
         e.preventDefault();
-        
         const nameInput = document.getElementById('linkName');
         const urlInput = document.getElementById('linkUrl');
         const groupInput = document.getElementById('linkGroup');
         const submitBtn = document.getElementById('submitBtn');
-        
-        const name = nameInput.value.trim();
-        const url = urlInput.value.trim();
-        const groupId = groupInput.value || null;
-        
-        if (!name || !url) return;
-        
-        // Disable form during processing
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Saving...';
-        
+        const name = nameInput.value.trim(); const url = urlInput.value.trim(); const groupId = groupInput.value || null; if (!name || !url) return;
+        submitBtn.disabled = true; submitBtn.textContent = 'Saving...';
         try {
           const previewData = await this.getPreviewData(url);
-          
-          const newLink = {
-            id: Date.now().toString(36) + Math.random().toString(36).substr(2, 9),
-            name,
-            url,
-            groupId,
-            image: previewData.image,
-            platform: previewData.platform,
-            createdAt: new Date().toISOString()
-          };
-          
-          this.links.unshift(newLink);
-          this.saveLinks();
-          this.render();
-          
-          // Reset and hide form
-          nameInput.value = '';
-          urlInput.value = '';
-          groupInput.value = '';
-          document.getElementById('linkForm').style.display = 'none';
-          
-        } catch (error) {
-          alert('Failed to save link. Please try again.');
-        } finally {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Save Link';
-        }
+          const newLink = { id: Date.now().toString(36) + Math.random().toString(36).substr(2, 9), name, url, groupId, image: previewData.image, platform: previewData.platform, createdAt: new Date().toISOString() };
+          this.links.unshift(newLink); this.saveLinks(); this.render(); nameInput.value=''; urlInput.value=''; groupInput.value=''; document.getElementById('linkForm').style.display='none';
+        } catch (error) { alert('Failed to save link. Please try again.'); }
+        finally { submitBtn.disabled = false; submitBtn.textContent = 'Save Link'; }
       }
-      
-      switchView(view) {
-        this.currentView = view;
-        this.render();
-      }
-      
-      toggleGroupMenu(groupId, event) {
-        event.stopPropagation();
-        
-        if (this.activeMenu === groupId) {
-          this.closeActiveMenu();
-        } else {
-          this.closeActiveMenu();
-          this.activeMenu = groupId;
-          const dropdown = document.querySelector(`[data-group-id="${groupId}"] .menu-dropdown`);
-          if (dropdown) {
-            dropdown.classList.add('show');
-          }
-        }
-      }
-      
-      closeActiveMenu() {
-        if (this.activeMenu) {
-          const dropdown = document.querySelector(`[data-group-id="${this.activeMenu}"] .menu-dropdown`);
-          if (dropdown) {
-            dropdown.classList.remove('show');
-          }
-          this.activeMenu = null;
-        }
-      }
-      
-      editGroup(groupId) {
-        const group = this.groups.find(g => g.id === groupId);
-        if (!group) return;
-        
-        this.editingGroup = group;
-        document.getElementById('editGroupName').value = group.name;
-        document.getElementById('editGroupModal').style.display = 'block';
-        this.closeActiveMenu();
-      }
-      
-      closeEditGroupModal() {
-        this.editingGroup = null;
-        document.getElementById('editGroupModal').style.display = 'none';
-      }
-      
-      saveGroupEdit() {
-        if (!this.editingGroup) return;
-        
-        const name = document.getElementById('editGroupName').value.trim();
-        if (!name) return;
-        
-        // Check if name already exists (excluding current group)
-        if (this.groups.find(g => g.id !== this.editingGroup.id && g.name.toLowerCase() === name.toLowerCase())) {
-          alert('A group with this name already exists');
-          return;
-        }
-        
-        this.editingGroup.name = name;
-        this.saveGroups();
-        this.closeEditGroupModal();
-        this.render();
-      }
-      
+
+      switchView(view) { this.currentView = view; this.render(); }
+      toggleGroupMenu(groupId, event) { event.stopPropagation(); if (this.activeMenu === groupId) { this.closeActiveMenu(); } else { this.closeActiveMenu(); this.activeMenu = groupId; const dropdown = document.querySelector(`[data-group-id="${groupId}"] .menu-dropdown`); if (dropdown) dropdown.classList.add('show'); } }
+      closeActiveMenu() { if (this.activeMenu) { const dropdown = document.querySelector(`[data-group-id="${this.activeMenu}"] .menu-dropdown`); if (dropdown) dropdown.classList.remove('show'); this.activeMenu = null; } }
+
+      editGroup(groupId) { const group = this.groups.find(g => g.id === groupId); if (!group) return; this.editingGroup = group; document.getElementById('editGroupName').value = group.name; document.getElementById('editGroupModal').style.display = 'block'; this.closeActiveMenu(); }
+      closeEditGroupModal() { this.editingGroup = null; document.getElementById('editGroupModal').style.display = 'none'; }
+      saveGroupEdit() { if (!this.editingGroup) return; const name = document.getElementById('editGroupName').value.trim(); if (!name) return; if (this.groups.find(g => g.id !== this.editingGroup.id && g.name.toLowerCase() === name.toLowerCase())) { alert('A group with this name already exists'); return; } this.editingGroup.name = name; this.saveGroups(); this.closeEditGroupModal(); this.render(); }
+
       deleteGroup(groupId) {
-        const group = this.groups.find(g => g.id === groupId);
-        const linksInGroup = this.links.filter(l => l.groupId === groupId);
-        
-        let message = `Delete group "${group.name}"?`;
-        if (linksInGroup.length > 0) {
-          message += ` This will move ${linksInGroup.length} link(s) to the main screen.`;
-        }
-        
-        if (confirm(message)) {
-          // Move links to main screen (no group)
-          linksInGroup.forEach(link => link.groupId = null);
-          
-          // Remove group
-          this.groups = this.groups.filter(g => g.id !== groupId);
-          this.saveGroups();
-          this.saveLinks();
-          
-          // Switch to main view if current group was deleted
-          if (this.currentView === groupId) {
-            this.currentView = 'main';
-          }
-          
-          this.closeActiveMenu();
-          this.render();
-        }
+        const group = this.groups.find(g => g.id === groupId); const linksInGroup = this.links.filter(l => l.groupId === groupId); let message = `Delete group "${group.name}"?`; if (linksInGroup.length > 0) { message += ` This will move ${linksInGroup.length} link(s) to the main screen.`; }
+        if (confirm(message)) { linksInGroup.forEach(link => link.groupId = null); this.groups = this.groups.filter(g => g.id !== groupId); this.saveGroups(); this.saveLinks(); if (this.currentView === groupId) { this.currentView = 'main'; } this.closeActiveMenu(); this.render(); }
       }
-      
-      deleteLink(id) {
-        if (confirm('Are you sure you want to delete this link?')) {
-          this.links = this.links.filter(link => link.id !== id);
-          this.saveLinks();
-          this.render();
-        }
-      }
-      
-      editLink(id) {
-        const link = this.links.find(l => l.id === id);
-        if (!link) return;
-        
-        this.editingLink = link;
-        document.getElementById('editName').value = link.name;
-        document.getElementById('editUrl').value = link.url;
-        document.getElementById('editModal').style.display = 'block';
-      }
-      
-      closeEditModal() {
-        this.editingLink = null;
-        document.getElementById('editModal').style.display = 'none';
-      }
-      
+
+      deleteLink(id) { if (confirm('Are you sure you want to delete this link?')) { this.links = this.links.filter(link => link.id !== id); this.saveLinks(); this.render(); } }
+      editLink(id) { const link = this.links.find(l => l.id === id); if (!link) return; this.editingLink = link; document.getElementById('editName').value = link.name; document.getElementById('editUrl').value = link.url; document.getElementById('editModal').style.display = 'block'; }
+      closeEditModal() { this.editingLink = null; document.getElementById('editModal').style.display = 'none'; }
+
       async saveEdit() {
-        if (!this.editingLink) return;
-        
-        const name = document.getElementById('editName').value.trim();
-        const url = document.getElementById('editUrl').value.trim();
-        
-        if (!name || !url) return;
-        
-        // Update preview if URL changed
-        if (url !== this.editingLink.url) {
-          const previewData = await this.getPreviewData(url);
-          this.editingLink.image = previewData.image;
-          this.editingLink.platform = previewData.platform;
-        }
-        
-        this.editingLink.name = name;
-        this.editingLink.url = url;
-        
-        this.saveLinks();
-        this.closeEditModal();
-        this.render();
+        if (!this.editingLink) return; const name = document.getElementById('editName').value.trim(); const url = document.getElementById('editUrl').value.trim(); if (!name || !url) return;
+        if (url !== this.editingLink.url) { const previewData = await this.getPreviewData(url); this.editingLink.image = previewData.image; this.editingLink.platform = previewData.platform; }
+        this.editingLink.name = name; this.editingLink.url = url; this.saveLinks(); this.closeEditModal(); this.render();
       }
-      
+
       openMoveModal(id) {
-        const link = this.links.find(l => l.id === id);
-        if (!link) return;
-        
-        this.movingLink = link;
-        
-        // Populate move options
-        const moveSelect = document.getElementById('moveToGroup');
-        moveSelect.innerHTML = '<option value="">Choose destination</option>';
-        
-        // Add "Main Screen" option if link is currently in a group
-        if (link.groupId) {
-          const option = document.createElement('option');
-          option.value = '';
-          option.textContent = 'Main Screen (No group)';
-          moveSelect.appendChild(option);
-        }
-        
-        // Add group options (excluding current group)
-        this.groups.forEach(group => {
-          if (group.id !== link.groupId) {
-            const option = document.createElement('option');
-            option.value = group.id;
-            option.textContent = group.name;
-            moveSelect.appendChild(option);
-          }
-        });
-        
+        const link = this.links.find(l => l.id === id); if (!link) return; this.movingLink = link; const moveSelect = document.getElementById('moveToGroup'); moveSelect.innerHTML = '<option value="">Choose destination</option>';
+        if (link.groupId) { const option = document.createElement('option'); option.value = ''; option.textContent = 'Main Screen (No group)'; moveSelect.appendChild(option); }
+        this.groups.forEach(group => { if (group.id !== link.groupId) { const option = document.createElement('option'); option.value = group.id; option.textContent = group.name; moveSelect.appendChild(option); } });
         document.getElementById('moveModal').style.display = 'block';
       }
-      
-      closeMoveModal() {
-        this.movingLink = null;
-        document.getElementById('moveModal').style.display = 'none';
-      }
-      
-      moveLink() {
-        if (!this.movingLink) return;
-        
-        const targetGroupId = document.getElementById('moveToGroup').value || null;
-        this.movingLink.groupId = targetGroupId;
-        this.saveLinks();
-        this.closeMoveModal();
-        this.render();
-      }
-      
+
+      closeMoveModal() { this.movingLink = null; document.getElementById('moveModal').style.display = 'none'; }
+      moveLink() { if (!this.movingLink) return; const targetGroupId = document.getElementById('moveToGroup').value || null; this.movingLink.groupId = targetGroupId; this.saveLinks(); this.closeMoveModal(); this.render(); }
+
       renderGroupTabs() {
-        const tabsContainer = document.getElementById('groupTabs');
-        tabsContainer.innerHTML = '';
-        
-        // Main screen tab
+        const tabsContainer = document.getElementById('groupTabs'); tabsContainer.innerHTML = '';
+        let filteredGroups = this.groups; if (this.searchTerm) { filteredGroups = this.groups.filter(group => group.name.toLowerCase().includes(this.searchTerm)); }
         const mainLinkCount = this.links.filter(l => !l.groupId).length;
-        const mainTab = document.createElement('div');
-        mainTab.className = `group-tab main ${this.currentView === 'main' ? 'active' : ''}`;
-        mainTab.innerHTML = `
-          All Links <span class="count">${mainLinkCount}</span>
-        `;
-        mainTab.addEventListener('click', () => this.switchView('main'));
-        tabsContainer.appendChild(mainTab);
-        
-        // Group tabs
-        this.groups.forEach(group => {
+        const mainHasMatchingLinks = !this.searchTerm || this.links.some(l => !l.groupId && (l.name.toLowerCase().includes(this.searchTerm) || l.url.toLowerCase().includes(this.searchTerm)));
+        if (!this.searchTerm || mainHasMatchingLinks) {
+          const mainTab = document.createElement('div');
+          mainTab.className = `group-tab main ${this.currentView === 'main' ? 'active' : ''}`;
+          mainTab.innerHTML = `All Links <span class="count">${mainLinkCount}</span>`;
+          mainTab.addEventListener('click', () => this.switchView('main'));
+          tabsContainer.appendChild(mainTab);
+        }
+        filteredGroups.forEach(group => {
           const linkCount = this.links.filter(l => l.groupId === group.id).length;
-          
-          const tab = document.createElement('div');
-          tab.className = `group-tab ${group.id === this.currentView ? 'active' : ''}`;
-          tab.innerHTML = `
-            ${this.escapeHtml(group.name)}
-            <span class="count">${linkCount}</span>
-            <div class="group-menu" data-group-id="${group.id}">
-              <button class="menu-trigger" onclick="event.stopPropagation(); linkSaver.toggleGroupMenu('${group.id}', event)">⋯</button>
-              <div class="menu-dropdown">
-                <div class="menu-item" onclick="linkSaver.editGroup('${group.id}')">Edit Name</div>
-                <div class="menu-item delete" onclick="linkSaver.deleteGroup('${group.id}')">Delete Group</div>
+          const groupHasMatchingLinks = !this.searchTerm || this.links.some(l => l.groupId === group.id && (l.name.toLowerCase().includes(this.searchTerm) || l.url.toLowerCase().includes(this.searchTerm)));
+          const showGroup = !this.searchTerm || group.name.toLowerCase().includes(this.searchTerm) || groupHasMatchingLinks;
+          if (showGroup) {
+            const tab = document.createElement('div');
+            tab.className = `group-tab ${group.id === this.currentView ? 'active' : ''}`;
+            tab.innerHTML = `
+              ${this.escapeHtml(group.name)}
+              <span class="count">${linkCount}</span>
+              <div class="group-menu" data-group-id="${group.id}">
+                <button class="menu-trigger" onclick="event.stopPropagation(); linkSaver.toggleGroupMenu('${group.id}', event)">⋯</button>
+                <div class="menu-dropdown">
+                  <div class="menu-item" onclick="linkSaver.editGroup('${group.id}')">Edit Name</div>
+                  <div class="menu-item delete" onclick="linkSaver.deleteGroup('${group.id}')">Delete Group</div>
+                </div>
               </div>
-            </div>
-          `;
-          tab.addEventListener('click', (e) => {
-            if (!e.target.closest('.group-menu')) {
-              this.switchView(group.id);
-            }
-          });
-          tabsContainer.appendChild(tab);
+            `;
+            tab.addEventListener('click', (e) => { if (!e.target.closest('.group-menu')) { this.switchView(group.id); } });
+            tabsContainer.appendChild(tab);
+          }
         });
       }
-      
-      renderGroupOptions() {
-        const groupSelect = document.getElementById('linkGroup');
-        groupSelect.innerHTML = '<option value="">No group (show on main screen)</option>';
-        
-        this.groups.forEach(group => {
-          const option = document.createElement('option');
-          option.value = group.id;
-          option.textContent = group.name;
-          groupSelect.appendChild(option);
-        });
-      }
-      
+
+      renderGroupOptions() { const groupSelect = document.getElementById('linkGroup'); groupSelect.innerHTML = '<option value="">No group (show on main screen)</option>'; this.groups.forEach(group => { const option = document.createElement('option'); option.value = group.id; option.textContent = group.name; groupSelect.appendChild(option); }); }
+
       getCurrentLinks() {
-        let links;
-        
-        if (this.currentView === 'main') {
-          links = this.links.filter(l => !l.groupId);
-        } else {
-          links = this.links.filter(l => l.groupId === this.currentView);
-        }
-        
-        // Apply search filter
-        if (this.searchTerm) {
-          links = links.filter(link => 
-            link.name.toLowerCase().includes(this.searchTerm) ||
-            link.url.toLowerCase().includes(this.searchTerm)
-          );
-        }
-        
+        let links; if (this.currentView === 'main') { links = this.links.filter(l => !l.groupId); } else { links = this.links.filter(l => l.groupId === this.currentView); }
+        if (this.searchTerm) { links = links.filter(link => link.name.toLowerCase().includes(this.searchTerm) || link.url.toLowerCase().includes(this.searchTerm)); }
         return links;
       }
-      
+
       render() {
-        this.renderGroupTabs();
-        this.renderGroupOptions();
-        
-        const container = document.getElementById('linksContainer');
-        const emptyState = document.getElementById('emptyState');
-        
+        this.renderGroupTabs(); this.renderGroupOptions();
+        const container = document.getElementById('linksContainer'); const emptyState = document.getElementById('emptyState');
         const currentLinks = this.getCurrentLinks();
-        
         if (currentLinks.length === 0) {
-          container.innerHTML = '';
-          emptyState.style.display = 'block';
-          
-          // Update empty state message based on search
-          const emptyTitle = emptyState.querySelector('h3');
-          const emptyDesc = emptyState.querySelector('p');
-          
-          if (this.searchTerm) {
-            emptyTitle.textContent = 'No links found';
-            emptyDesc.textContent = `No links match "${this.searchTerm}"`;
-          } else {
-            emptyTitle.textContent = 'No links here yet';
-            emptyDesc.textContent = 'Add your first link using the 🔗 button above';
-          }
-          
+          container.innerHTML = ''; emptyState.style.display = 'block';
+          const emptyTitle = emptyState.querySelector('h3'); const emptyDesc = emptyState.querySelector('p');
+          if (this.searchTerm) { emptyTitle.textContent = 'No links found'; emptyDesc.textContent = `No links match "${this.searchTerm}"`; }
+          else { emptyTitle.textContent = 'No links here yet'; emptyDesc.textContent = 'Add your first link using the + button above'; }
           return;
         }
-        
         emptyState.style.display = 'none';
-        
-        // Show move button if there are groups or if current link is in a group (can move to main)
-        const showMoveButton = (link) => {
-          return this.groups.length > 0 || link.groupId;
-        };
-        
+        const showMoveButton = (link) => { return this.groups.length > 0 || link.groupId; };
         container.innerHTML = currentLinks.map(link => `
           <div class="link-card">
-            <img src="${this.escapeHtml(link.image)}" alt="Preview" class="preview-image" 
-                 onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;400&quot; height=&quot;200&quot;><rect width=&quot;100%&quot; height=&quot;100%&quot; fill=&quot;%231a202c&quot;/><text x=&quot;50%&quot; y=&quot;50%&quot; fill=&quot;%23a0aec0&quot; font-size=&quot;16&quot; text-anchor=&quot;middle&quot; dominant-baseline=&quot;middle&quot;>Preview not available</text></svg>'">
+            <img src="${this.escapeHtml(link.image)}" alt="Preview" class="preview-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"400\" height=\"200\"><rect width=\"100%\" height=\"100%\" fill=\"%230a0a0a\"/><text x=\"50%\" y=\"50%\" fill=\"%23a3a3a3\" font-size=\"16\" text-anchor=\"middle\" dominant-baseline=\"middle\"></text></svg>
             <div class="card-content">
               <h3 class="card-title">
                 <span class="platform-icon">${this.getPlatformIcon(link.platform)}</span>
@@ -1230,30 +470,19 @@
               </h3>
               <div class="card-url">${this.escapeHtml(link.url)}</div>
               <div class="card-actions">
-                <button class="action-btn open" onclick="window.open('${this.escapeHtml(link.url)}', '_blank')">
-                  Open
-                </button>
-                <button class="action-btn" onclick="linkSaver.editLink('${link.id}')">
-                  Edit
-                </button>
+                <button class="action-btn open" onclick="window.open('${this.escapeHtml(link.url)}', '_blank')">Open</button>
+                <button class="action-btn" onclick="linkSaver.editLink('${link.id}')">Edit</button>
                 ${showMoveButton(link) ? `<button class="action-btn move" onclick="linkSaver.openMoveModal('${link.id}')">Move</button>` : ''}
-                <button class="action-btn delete" onclick="linkSaver.deleteLink('${link.id}')">
-                  Delete
-                </button>
+                <button class="action-btn delete" onclick="linkSaver.deleteLink('${link.id}')">Delete</button>
               </div>
             </div>
           </div>
         `).join('');
       }
-      
-      escapeHtml(text) {
-        const div = document.createElement('div');
-        div.textContent = text;
-        return div.innerHTML;
-      }
+
+      escapeHtml(text) { const div = document.createElement('div'); div.textContent = text; return div.innerHTML; }
     }
-    
-    // Initialize the app
+
     const linkSaver = new LinkSaver();
   </script>
 </body>
